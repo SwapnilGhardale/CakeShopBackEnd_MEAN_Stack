@@ -54,7 +54,7 @@ exports.createProduct =
 exports.getAllProducts =
    (req, res) => 
   {
-    Product.find().exec((err, product) => {
+    Product.find().populate("category").exec((err, product) => {
       if (err) {
         return res.status(400).json({
           error: "NO categories found"
