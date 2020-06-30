@@ -67,7 +67,7 @@ exports.signup = (req, res) => {
     User.find().exec((err, users) => {
       if (err) {
         return res.status(400).json({
-          error: "NO categories found"
+          error: "No Users found"
         });
       }
       res.json({user:{_id,name,email,address}});

@@ -7,7 +7,7 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
 const port = 3000
-
+//mongoose.connect('mongodb://localhost:27017/backendshop',......)
 mongoose.connect('mongodb+srv://root:mongular@cluster0-fme0k.mongodb.net/backendshop?retryWrites=true&w=majority',
  {useNewUrlParser: true, 
     useUnifiedTopology: true,
