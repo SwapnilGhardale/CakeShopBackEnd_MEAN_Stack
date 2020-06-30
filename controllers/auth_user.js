@@ -60,3 +60,16 @@ exports.signup = (req, res) => {
        return res.json({  user: { _id, name, email} });
      });
    };  
+
+   exports.getAllUsers =
+   (req, res) => 
+  {
+    User.find().exec((err, users) => {
+      if (err) {
+        return res.status(400).json({
+          error: "NO categories found"
+        });
+      }
+      res.json({user:{_id,name,email,address}});
+    });
+  };
