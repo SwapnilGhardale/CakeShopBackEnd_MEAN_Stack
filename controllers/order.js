@@ -1,7 +1,7 @@
 const { Order, ProductCart } = require("../models/order");
 
 exports.getOrderById = (req, res, next, id) => {
-  Order.findById(id)
+  Order.findById(id).populate("user","name address email")
     .populate("products.product", "name price")
     .exec((err, order) => {
       if (err) {
@@ -33,10 +33,10 @@ exports.getOrder = (req, res) => {
 exports.getAllOrders =
 (req, res) => 
 {
- Order.find().exec((err, orders) => {
+ Order.find().populate("user","name address email").exec((err, orders) => {
    if (err) {
      return res.status(400).json({
-       error: "NO products found"
+       error: "No orders found"
      });
    }
    res.json(orders);
