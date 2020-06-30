@@ -70,6 +70,6 @@ exports.signup = (req, res) => {
           error: "No Users found"
         });
       }
-      res.json({user:{_id,name,email,address}});
+      res.json(users);
     });
   };
